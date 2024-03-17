@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci3yl7i542k4l"]
+
+[ext_resource type="Texture2D" uid="uid://dx02jd8hx0niu" path="res://assets/colored-transparent_packed.png" id="1_8o8w7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ec1ql"]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aod82"]
+atlas = ExtResource("1_8o8w7")
+region = Rect2(464, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ee2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aod82")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ec1ql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6ee2u")
